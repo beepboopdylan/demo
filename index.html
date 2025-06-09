@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Weather Visualizer</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+    }
+
+    #condition {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    model-viewer {
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+    <h2>Select a City</h2>
+        <select id="city-select">
+            <option value="New York">New York</option>
+            <option value="London">London</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Shanghai">Shanghai</option>
+        </select>
+
+  <div id="condition">Loading weather...</div>
+
+  <model-viewer
+    id="viewer"
+    src=""
+    alt="3D model of weather"
+    auto-rotate
+    camera-controls
+    style="width: 500px; height: 500px;">
+  </model-viewer>
+  <iframe
+    id="arframe"
+    src=""
+    style="width: 500px; height: 500px; border: none; display: none;">
+  </iframe>
+
+  <script>
+    function isARUrl(url) {
+      return url.includes('webar?');
+    }
+
+    function updateModel(city) {
+        fetch(`/model?city=${encodeURIComponent(city)}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById("condition").textContent = "Weather in " + city + ": " + data.condition;
+            if (isARUrl(data.model_url)) {
+              document.getElementById("viewer").style.display = "none";
+              document.getElementById("arframe").style.display = "block";
+              document.getElementById("arframe").src = data.model_url;
+            } else {
+              document.getElementById("arframe").style.display = "none";
+              document.getElementById("viewer").style.display = "block";
+              document.getElementById("viewer").src = data.model_url;
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            document.getElementById("condition").textContent = "Error loading weather model.";
+          });
+    }
+
+    // default city
+    const citySelect = document.getElementById("city-select");
+    updateModel(citySelect.value);
+
+
+    citySelect.addEventListener("change", () => {
+      updateModel(citySelect.value);
+    });
+  </script>
+</body>
+</html>
+<!-- This HTML file fetches weather data from a server and displays a 3D model based on the weather condition. -->
