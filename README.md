@@ -1,6 +1,6 @@
 # 1. Make sure Python 3.8+ is installed:
-#    macOS: python3 --version
-#    Windows: py --version
+    macOS: python3 --version
+    Windows: py --version
 
 # 2. Clone the repo
 git clone https://github.com/your-repo.git
