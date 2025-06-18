@@ -14,6 +14,7 @@ weather_model_map = {
     "Mist": "https://api.echo3d.com/webar?key=holy-butterfly-0215&entry=1239d368-f0ac-4813-b8d1-fdefb32b52c9",
     "Clear": "https://api.echo3d.com/webar?key=holy-butterfly-0215&entry=4e21831a-47f7-42a7-9faf-1b0217fabd60",
     "Clouds": "https://api.echo3d.com/webar?key=holy-butterfly-0215&entry=81154b11-5a00-49f0-ad31-286f641a8c1a",
+    "Haze": "https://api.echo3d.com/webar?key=holy-butterfly-0215&entry=81154b11-5a00-49f0-ad31-286f641a8c1a",
     "Snow": "https://api.echo3d.com/webar?key=holy-butterfly-0215&entry=ab27791b-cf09-456e-b2a2-4c717a59298a"
 }
 

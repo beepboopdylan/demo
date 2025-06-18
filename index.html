@@ -4,28 +4,7 @@
   <meta charset="UTF-8">
   <title>3D Weather Visualizer</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #f0f0f0;
-    }
-
-    #condition {
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    model-viewer {
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-  </style>
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
@@ -34,8 +13,13 @@
             <option value="New York">New York</option>
             <option value="London">London</option>
             <option value="Tokyo">Tokyo</option>
-            <option value="Cairo">Cairo</option>
+            <option value="Paris">Paris</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Moscow">Moscow</option>
+            <option value="Los Angeles">Los Angeles</option>
             <option value="Shanghai">Shanghai</option>
+            <option value="Cairo">Cairo</option>
         </select>
 
   <div id="condition">Loading weather...</div>
