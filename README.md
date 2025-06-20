@@ -3,8 +3,8 @@
     Windows: py --version
 
 # 2. Clone the repo
-    git clone https://github.com/your-repo.git
-    cd your-repo
+    git clone https://github.com/beepboopdylan/dylan-tran-echo3D-weather-demo.git
+    cd dylan-tran-echo3D-weather-demo
 
 # 3. Create a virtual environment
     python3 -m venv venv
